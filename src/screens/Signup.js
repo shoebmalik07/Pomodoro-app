@@ -11,13 +11,13 @@ import {
   Text,
   Alert,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FormContainer from "../components/FormContainer";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useUserAuth } from "../contexts/UserAuthContext";
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -29,7 +29,7 @@ const Signup = () => {
     setError("");
     try {
       await signup(email, password);
-      navigate('/')
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -49,7 +49,6 @@ const Signup = () => {
               id="email"
               type="email"
               placeholder="your email"
-              // value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -64,7 +63,6 @@ const Signup = () => {
               id="password"
               type="password"
               placeholder="**********"
-              // value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
@@ -78,7 +76,7 @@ const Signup = () => {
 
         <Flex>
           <Text fontWeight="semibold">
-            Already a User?{" "}
+            Already a User?
             <Link as={RouterLink} to="/">
               click here to login
             </Link>

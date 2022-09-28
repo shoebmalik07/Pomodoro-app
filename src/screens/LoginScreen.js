@@ -9,46 +9,42 @@ import {
   Spacer,
   Text,
   Icon,
-  Alert
+  Alert,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FormContainer from "../components/FormContainer";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import {FcGoogle} from 'react-icons/fc'
+import { FcGoogle } from "react-icons/fc";
 import { useUserAuth } from "../contexts/UserAuthContext";
 
 const LoginScreen = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error,setError] = useState('')
+  const [error, setError] = useState("");
 
-  
-  const {logIn, signInWithGoogle} = useUserAuth()
+  const { logIn, signInWithGoogle } = useUserAuth();
 
-  const submitHandler = async(e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    setError('')
+    setError("");
     try {
-      await logIn(email,password)
-      navigate('/timer')
+      await logIn(email, password);
+      navigate("/timer");
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     }
-
   };
 
-  const handleSubmit =async (e)=>{
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      await signInWithGoogle()
-      navigate('/timer')
-      
+      await signInWithGoogle();
+      navigate("/timer");
     } catch (err) {
-      setError(err.message)
-      
+      setError(err.message);
     }
-  }
+  };
 
   return (
     <Flex w="full" alignItems="center" justifyContent="center" py="p">
@@ -86,7 +82,7 @@ const LoginScreen = () => {
             Login
           </Button>
         </form>
-        
+
         <Button
           mt={"10"}
           bgColor={"purple.500"}
@@ -101,7 +97,7 @@ const LoginScreen = () => {
         <Flex pt="10">
           <Text fontWeight="semibold">
             New User?
-            <Link as = {RouterLink} to= '/signup'>
+            <Link as={RouterLink} to="/signup">
               click here to sign up
             </Link>
           </Text>

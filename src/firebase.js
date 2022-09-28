@@ -1,6 +1,5 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getAuth} from 'firebase/auth'
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDATNKSCJge05O047NY1dpbz7osDAo29ys",
   authDomain: "pomodoro-app-3deca.firebaseapp.com",
@@ -8,11 +7,10 @@ const firebaseConfig = {
   storageBucket: "pomodoro-app-3deca.appspot.com",
   messagingSenderId: "377925308220",
   appId: "1:377925308220:web:0d187c27c45c1ab5709839",
-  measurementId: "G-X0LKBQG8DR"
+  measurementId: "G-X0LKBQG8DR",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app)
-export default app
+export const auth = getAuth(app);
+export default app;
