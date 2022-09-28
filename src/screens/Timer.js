@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Heading, Flex } from "@chakra-ui/react";
-import Navbar from '../components/Navbar'
+import Navbar from "../components/Navbar";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(0);
@@ -32,7 +32,7 @@ const Timer = () => {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Flex alignItems="center" justifyContent="center" mt="40">
         <Flex
           alignItems="center"
