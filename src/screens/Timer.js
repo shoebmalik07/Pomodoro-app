@@ -21,6 +21,13 @@ const Timer = () => {
     }, 1000);
     return () => clearInterval(timer);
   });
+  const play= ()=>{      
+    setSeconds(seconds - 1);
+      if (seconds === 0) {
+        setMinutes(minutes - 1);
+        setSeconds(59);
+      }
+  }
 
   const restart = () => {
     setSeconds(0);
@@ -53,6 +60,9 @@ const Timer = () => {
           <Flex mb="5">
             <Button onClick={restart} colorScheme="purple" mx="5">
               RESTART
+            </Button>
+            <Button onClick={play}  colorScheme="purple" mx="5">
+              PLAY
             </Button>
             <Button onClick={pause} colorScheme="purple" mx={"5"}>
               PAUSE
